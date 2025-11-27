@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn server & next dev",
+    "dev": "npm run server & next dev",
     "build": "next build",
     "start": "next start",
-    "server": "yarn run json-graphql-server ../server/db.js --p 3001",
+    "server": "json-graphql-server ../server/db.js -p 3001",
     "test": "jest"
   },
   "dependencies": {
