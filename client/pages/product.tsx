@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Head from "next/head";
 import styles from "../styles/Product.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -52,66 +53,71 @@ export default function Product() {
   };
 
   return (
-    <div className="product-page">
-      <Header />
+    <>
+      <Head>
+        <title>{product ? product.name : "Product"} - Octopus Energy</title>
+      </Head>
+      <div className="product-page">
+        <Header />
 
-      <main className={styles.container}>
-        <div className={styles.productHeadingWrapper}>
-          <div className={styles.productImage}>
-            {product && <img src={product.img_url} alt={product.name} />}
-          </div>
-          <div className={styles.productContent}>
-            <h1 className={styles.title}>{product?.name}</h1>
-            <p className={styles.subtitle}>
-              {product?.power} // Packet of {product?.quantity}
-            </p>
-            <div className={styles.productPrice}>
-              <div className={styles.price}>
-                {product && formatPrice(product.price)}
+        <main className={styles.container}>
+          <div className={styles.productHeadingWrapper}>
+            <div className={styles.productImage}>
+              {product && <img src={product.img_url} alt={product.name} />}
+            </div>
+            <div className={styles.productContent}>
+              <h1 className={styles.title}>{product?.name}</h1>
+              <p className={styles.subtitle}>
+                {product?.power} // Packet of {product?.quantity}
+              </p>
+              <div className={styles.productPrice}>
+                <div className={styles.price}>
+                  {product && formatPrice(product.price)}
+                </div>
+                <QuantitySelector
+                  className={styles.quantitySelector}
+                  value={quantity}
+                  onIncrease={handleIncrease}
+                  onDecrease={handleDecrease}
+                />
               </div>
-              <QuantitySelector
-                className={styles.quantitySelector}
-                value={quantity}
-                onIncrease={handleIncrease}
-                onDecrease={handleDecrease}
-              />
-            </div>
-            <div className={styles.controls}>
-              <button
-                type="button"
-                className={styles.addToCartBtn}
-                onClick={handleAddToCart}
-              >
-                Add to cart
-              </button>
+              <div className={styles.controls}>
+                <button
+                  type="button"
+                  className={styles.addToCartBtn}
+                  onClick={handleAddToCart}
+                >
+                  Add to cart
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles.productDetails}>
-          <div className={styles.description}>
-            <h2 className={styles.descriptionTitle}>Description</h2>
-            <p>{product?.description}</p>
-          </div>
-
-          {product && (
-            <div className={styles.specs}>
-              <h2 className={styles.specsTitle}>Specifications</h2>
-              <table className={styles.specTable}>
-                <tbody>
-                  {specs.map((spec, index) => (
-                    <tr key={index} className={styles.specRow}>
-                      <td className={styles.specLabel}>{spec.label}</td>
-                      <td className={styles.specValue}>{spec.value}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+          <div className={styles.productDetails}>
+            <div className={styles.description}>
+              <h2 className={styles.descriptionTitle}>Description</h2>
+              <p>{product?.description}</p>
             </div>
-          )}
-        </div>
-      </main>
 
-      <Footer />
-    </div>
+            {product && (
+              <div className={styles.specs}>
+                <h2 className={styles.specsTitle}>Specifications</h2>
+                <table className={styles.specTable}>
+                  <tbody>
+                    {specs.map((spec, index) => (
+                      <tr key={index} className={styles.specRow}>
+                        <td className={styles.specLabel}>{spec.label}</td>
+                        <td className={styles.specValue}>{spec.value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        </main>
+
+        <Footer />
+      </div>
+    </>
   );
 }
