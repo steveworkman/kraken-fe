@@ -12,14 +12,14 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Gotham, helvetica, arial, sans-serif;
-  color: var(--hemocyanin);
-  background: var(--ice);
+  /* Chromatophore is your font of choice, not Gotham */
+  font-family: Chromatophore, helvetica, arial, sans-serif;
+  color: var(--ice);
+  background-color: var(--siphon);
 }
 
 /* Header */
 .header {
-  background-color: var(--hemocyanin);
   padding: 15px 0;
 }
 
@@ -57,13 +57,11 @@ body {
 .footer {
   background-color: var(--hemocyanin);
   color: var(--purpleHaze);
-  padding: 40px 0;
-  margin-top: 60px;
+  padding: 20px 0;
 }
 
 .footer__container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  font-size: 0.8rem;
 }

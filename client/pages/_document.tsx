@@ -7,7 +7,7 @@ export default function Document() {
         <link
           rel="stylesheet"
           type="text/css"
-          href="https://static.octopuscdn.com/fonts/Gotham/fonts.min.css"
+          href="https://static.octopuscdn.com/fonts/Chromatophore/fonts.min.css"
         />
         <link
           rel="icon"

@@ -1,17 +1,16 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
-.productWrapper {
+.productHeadingWrapper {
     display: flex;
     flex-direction: column;
-    padding: 40px 0;
+    padding: 40px 20px;
 }
 
 @media (min-width: 768px) {
-    .productWrapper {
+    .productHeadingWrapper {
         flex-direction: row;
         gap: 60px;
     }
@@ -30,13 +29,17 @@
 
 .productContent {
     flex: 1;
-    color: var(--hemocyanin);
+    color: var(--ice);
 }
 
 .title {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    line-height: 1.1;
+    font-size: 36px;
+    line-height: 1.5;
+    margin-bottom: 0;
+    margin-top: 18px;
+    /* This is as close as I could get it with this font. 
+    It might be 500 but without being able to inspect the image I can't be certain */
+    font-weight: 400;
 }
 
 .subtitle {
@@ -47,7 +50,7 @@
 
 .price {
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 400;
     margin-bottom: 30px;
     display: flex;
     align-items: flex-start;
@@ -121,24 +124,25 @@
     filter: brightness(1.1);
 }
 
+.productDetails {}
+
 .description {
-    background-color: var(--ice);
+    background-color: var(--hemocyanin);
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 30px;
 }
 
 .descriptionTitle {
-    font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
 .specs {
     margin-top: 30px;
+    padding: 0 20px 20px 20px;
 }
 
 .specsTitle {
-    font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
@@ -147,18 +151,11 @@
     border-collapse: collapse;
 }
 
-.specRow {
-    border-bottom: 1px solid var(--purpleHaze);
-}
-
 .specLabel {
     padding: 10px 0;
     font-weight: normal;
-    color: var(--hemocyanin);
 }
 
 .specValue {
     padding: 10px 0;
-    text-align: right;
-    font-weight: bold;
 }
