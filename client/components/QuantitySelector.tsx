@@ -26,16 +26,22 @@ export default function QuantitySelector({
         onClick={onDecrease}
         disabled={value <= 1}
         type="button"
+        title="Decrease quantity"
       >
         -
       </button>
-      <span className={styles.quantityValue} title="Current quantity">
+      <span
+        aria-live="polite"
+        className={styles.quantityValue}
+        title="Current quantity"
+      >
         {value}
       </span>
       <button
         className={`${styles.quantityBtn} ${styles.quantityIncrement}`}
         onClick={onIncrease}
         type="button"
+        title="Increase quantity"
       >
         +
       </button>
