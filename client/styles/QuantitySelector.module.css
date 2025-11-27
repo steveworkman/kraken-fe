@@ -1,0 +1,54 @@
+.quantitySelector {
+    display: grid;
+    max-width: 120px;
+    align-items: center;
+    justify-items: center;
+    grid-template-areas:
+        ". quantityLabel ."
+        "quantityDecrement quantityValue quantityIncrement";
+}
+
+.quantityLabel {
+    grid-area: quantityLabel;
+    display: block;
+    margin-bottom: 10px;
+    color: var(--ice);
+}
+
+.quantityBtn {
+    background-color: var(--sohoLights);
+    color: var(--siphon);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+}
+
+.quantityDecrement {
+    grid-area: quantityDecrement;
+}
+
+.quantityIncrement {
+    grid-area: quantityIncrement;
+}
+
+.quantityBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    color: var(--ice);
+}
+
+.quantityValue {
+    grid-area: quantityValue;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 20px;
+    min-width: 20px;
+    text-align: center;
+    color: var(--ice);
+}

@@ -48,12 +48,22 @@
     margin-bottom: 30px;
 }
 
+.productPrice {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 .price {
     font-size: 2rem;
     font-weight: 400;
-    margin-bottom: 30px;
     display: flex;
-    align-items: flex-start;
+    align-content: flex-start;
+    flex-grow: 1;
+}
+
+.quantitySelector {
+    align-self: flex-start;
 }
 
 .priceCurrency {
@@ -71,32 +81,6 @@
     margin-bottom: 10px;
     color: var(--hemocyanin);
     font-weight: bold;
-}
-
-.quantitySelector {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.quantityBtn {
-    background-color: var(--hemocyanin);
-    color: var(--ice);
-    border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.2s;
-}
-
-.quantityBtn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
 }
 
 .quantityValue {

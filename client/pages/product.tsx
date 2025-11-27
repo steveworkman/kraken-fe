@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "../styles/Product.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import QuantitySelector from "../components/QuantitySelector";
 import { useProductStore } from "../store/useProductStore";
 
 export default function Product() {
@@ -48,29 +49,23 @@ export default function Product() {
             <p className={styles.subtitle}>
               {product?.power} // Packet of {product?.quantity}
             </p>
-
-            <div className={styles.price}>
-              {product && formatPrice(product.price)}
-            </div>
-
-            <div className={styles.controls}>
-              <div className={styles.quantitySelector}>
-                <span className={styles.quantityLabel}>Qty</span>
-                <button
-                  className={styles.quantityBtn}
-                  onClick={handleDecrease}
-                  disabled={quantity <= 1}
-                >
-                  -
-                </button>
-                <span className={styles.quantityValue} title="Current quantity">
-                  {quantity}
-                </span>
-                <button className={styles.quantityBtn} onClick={handleIncrease}>
-                  +
-                </button>
+            <div className={styles.productPrice}>
+              <div className={styles.price}>
+                {product && formatPrice(product.price)}
               </div>
-              <button className={styles.addToCartBtn} onClick={handleAddToCart}>
+              <QuantitySelector
+                className={styles.quantitySelector}
+                value={quantity}
+                onIncrease={handleIncrease}
+                onDecrease={handleDecrease}
+              />
+            </div>
+            <div className={styles.controls}>
+              <button
+                type="button"
+                className={styles.addToCartBtn}
+                onClick={handleAddToCart}
+              >
                 Add to cart
               </button>
             </div>
