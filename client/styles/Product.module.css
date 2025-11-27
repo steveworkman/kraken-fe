@@ -1,0 +1,164 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.productWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+}
+
+@media (min-width: 768px) {
+    .productWrapper {
+        flex-direction: row;
+        gap: 60px;
+    }
+}
+
+.productImage {
+    flex: 1;
+}
+
+.productImage img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.productContent {
+    flex: 1;
+    color: var(--hemocyanin);
+}
+
+.title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--purpleHaze);
+    margin-bottom: 30px;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.priceCurrency {
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.controls {
+    margin-bottom: 30px;
+}
+
+.quantityLabel {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: var(--hemocyanin);
+    font-weight: bold;
+}
+
+.quantitySelector {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.quantityBtn {
+    background-color: var(--hemocyanin);
+    color: var(--ice);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+}
+
+.quantityBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.quantityValue {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 20px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.addToCartBtn {
+    background-color: var(--sohoLights);
+    color: var(--hemocyanin);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.addToCartBtn:hover {
+    filter: brightness(1.1);
+}
+
+.description {
+    background-color: var(--ice);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.descriptionTitle {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.specs {
+    margin-top: 30px;
+}
+
+.specsTitle {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.specTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.specRow {
+    border-bottom: 1px solid var(--purpleHaze);
+}
+
+.specLabel {
+    padding: 10px 0;
+    font-weight: normal;
+    color: var(--hemocyanin);
+}
+
+.specValue {
+    padding: 10px 0;
+    text-align: right;
+    font-weight: bold;
+}
