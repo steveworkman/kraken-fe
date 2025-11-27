@@ -11,10 +11,26 @@ export default function Product() {
   const addToBasket = useProductStore((state) => state.addToBasket);
 
   const [quantity, setQuantity] = useState(1);
+  const [specs, setSpecs] = useState<{ label: string; value: string }[]>([]);
 
   useEffect(() => {
     fetchProduct(1);
   }, [fetchProduct]);
+
+  useEffect(() => {
+    if (product) {
+      setSpecs([
+        { label: "Brand", value: product.brand },
+        { label: "Item weight (g)", value: product.weight.toString() },
+        {
+          label: "Dimensions (cm)",
+          value: `${product.height} x ${product.width} x ${product.length}`,
+        },
+        { label: "Item Model number", value: product.model_code },
+        { label: "Colour", value: product.colour },
+      ]);
+    }
+  }, [product]);
 
   const handleIncrease = () => {
     setQuantity((q) => q + 1);
@@ -82,28 +98,12 @@ export default function Product() {
               <h2 className={styles.specsTitle}>Specifications</h2>
               <table className={styles.specTable}>
                 <tbody>
-                  <tr className={styles.specRow}>
-                    <td className={styles.specLabel}>Brand</td>
-                    <td className={styles.specValue}>{product.brand}</td>
-                  </tr>
-                  <tr className={styles.specRow}>
-                    <td className={styles.specLabel}>Item weight</td>
-                    <td className={styles.specValue}>{product.weight}g</td>
-                  </tr>
-                  <tr className={styles.specRow}>
-                    <td className={styles.specLabel}>Dimensions</td>
-                    <td className={styles.specValue}>
-                      {product.height}x{product.width}x{product.length} cm
-                    </td>
-                  </tr>
-                  <tr className={styles.specRow}>
-                    <td className={styles.specLabel}>Item Model number</td>
-                    <td className={styles.specValue}>{product.model_code}</td>
-                  </tr>
-                  <tr className={styles.specRow}>
-                    <td className={styles.specLabel}>Colour</td>
-                    <td className={styles.specValue}>{product.colour}</td>
-                  </tr>
+                  {specs.map((spec, index) => (
+                    <tr key={index} className={styles.specRow}>
+                      <td className={styles.specLabel}>{spec.label}</td>
+                      <td className={styles.specValue}>{spec.value}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>

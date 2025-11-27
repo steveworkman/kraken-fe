@@ -11,7 +11,6 @@
 .quantityLabel {
     grid-area: quantityLabel;
     display: block;
-    margin-bottom: 10px;
     color: var(--ice);
 }
 
@@ -21,8 +20,7 @@
     border: none;
     width: 30px;
     height: 30px;
-    border-radius: 8px;
-    font-size: 1.2rem;
+    border-radius: 10px;
     cursor: pointer;
     align-items: center;
     justify-content: center;
@@ -38,7 +36,7 @@
 }
 
 .quantityBtn:disabled {
-    opacity: 0.5;
+    background-color: var(--plum);
     cursor: not-allowed;
     color: var(--ice);
 }
@@ -46,9 +44,7 @@
 .quantityValue {
     grid-area: quantityValue;
     font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0 20px;
-    min-width: 20px;
+    margin: 0 10px;
     text-align: center;
     color: var(--ice);
 }
